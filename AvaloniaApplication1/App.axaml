@@ -1,0 +1,15 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:notes5="clr-namespace:notes5"
+             x:Class="notes5.App"
+             RequestedThemeVariant="Default">
+
+             <Application.Resources>
+                 <notes5:StringTrimmerConverter x:Key="StringTrimmerConverter" />
+             </Application.Resources>
+             
+             <Application.Styles>
+                <FluentTheme />
+                
+            </Application.Styles>
+</Application>

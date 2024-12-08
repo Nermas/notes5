@@ -1,0 +1,102 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:notes5="clr-namespace:notes5"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="notes5.MainWindow"
+        Title="notes5"
+        x:DataType="notes5:MainWindow">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key='BackgroundBrush'>#f2f2f2</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key='BackgroundBrush'>#2b2b2b</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+  
+    <Window.Styles>
+        <Style Selector="Button.yellow-button">
+            <Setter Property="Background" Value="#FFD700" /> 
+            <Setter Property="Foreground" Value="#FFFFFF" /> 
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" /> 
+            <Setter Property="CornerRadius" Value="8" /> 
+            <Setter Property="Padding" Value="10,5" /> 
+        </Style>
+        <Style Selector="Button.yellow-button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#FFC107" /> 
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+        <Style Selector="Button.red-button">
+            <Setter Property="Background" Value="#FF0000" /> 
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" /> 
+            <Setter Property="VerticalContentAlignment" Value="Center" /> 
+            <Setter Property="CornerRadius" Value="8" /> 
+            <Setter Property="Padding" Value="10,5" />
+        </Style>
+        <Style Selector="Button.red-button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#CC0000" /> 
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+        <Style Selector="DockPanel">
+            <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Window.Styles>
+    <DockPanel>
+        
+        <Grid DockPanel.Dock="Top" Height="50" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/> 
+                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="Auto"/> 
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Classes="yellow-button" Width="50" Height="35" Margin="5" Click="SettingsClick">
+                    <Svg Path="Assets/images/settings.svg" Height="18"/>        
+                </Button>
+                <Button Classes="yellow-button" Width="50" Height="35" Margin="5" Click="CreateNote">
+                    <Svg Path="Assets/images/plus.svg" Height="18"/>        
+                </Button>
+            </StackPanel>
+
+            <Label Grid.Column="1" />
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                <Button Classes="red-button" Width="50" Height="35" Margin="5" Click="DeleteNote">
+                    <Svg Path="Assets/images/trash.svg" Height="18"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <ListBox x:Name="MyListBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding MyItems}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Text, Converter={StaticResource StringTrimmerConverter}}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding CreatedAt, StringFormat='Создано: {0:dd.MM.yyyy в HH:mm}'}" />
+                        <TextBlock Text="{Binding EditedAt, StringFormat='Изменено: {0:dd.MM.yyyy в HH:mm}'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ScrollViewer>
+                <TextBox x:Name="textbox" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
