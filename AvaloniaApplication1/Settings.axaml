@@ -4,7 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Width="650" Height="300"
         x:Class="notes5.Settings"
-        Title="Настройки">
+        Title="Настройки"
+		Icon="Assets/icons/64.png">
     <Grid Margin="20" RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, Auto">
         <TextBlock Text="Выберите шрифт:" FontSize="16" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
         <ComboBox x:Name="FontComboBox1" Width="360" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0"/>

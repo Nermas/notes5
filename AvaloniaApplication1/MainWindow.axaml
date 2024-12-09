@@ -5,7 +5,8 @@
         xmlns:notes5="clr-namespace:notes5"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="notes5.MainWindow"
-        Title="notes5"
+        Title="Заметки"
+		Icon="Assets/icons/64.png"
         x:DataType="notes5:MainWindow">
     <Window.Resources>
         <ResourceDictionary>

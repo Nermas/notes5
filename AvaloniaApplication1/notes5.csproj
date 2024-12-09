@@ -8,11 +8,15 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\icons\64.png" />
     <None Remove="Assets\images\plus.svg" />
     <None Remove="Assets\images\settings.svg" />
     <None Remove="Assets\images\trash.svg" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Include="Assets\icons\64.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
     <AvaloniaResource Include="Assets\images\plus.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AvaloniaResource>
@@ -22,9 +26,6 @@
     <AvaloniaResource Include="Assets\images\trash.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AvaloniaResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\images\.DS_Store" />
   </ItemGroup>
 
   <ItemGroup>
